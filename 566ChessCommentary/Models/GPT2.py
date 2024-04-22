@@ -30,6 +30,5 @@ class GPT2:
         state_dict = torch.load(model_path, map_location=self.device)
 
         # Ensure the model is correctly sized before loading the state dict
-        self.model.resize_token_embeddings(len(self.tokenizer))
         self.model.load_state_dict(state_dict)
         self.model.to(self.device)
